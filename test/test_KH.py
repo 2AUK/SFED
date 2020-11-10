@@ -5,15 +5,19 @@ import sys
 sys.path.append("/home/abdullah/Code/Python/SFED/")
 from gridcollector import GridCollector
 from SFED_routines import sfed_kh_3drism, integrate_sfed
+from pathlib import Path
 
-gc3methbut1e = GridCollector("3methbut1e", "/home/abdullah/Code/Python/SFED/data/DATA/KH/3methbut1e/3")
-gc3methbut1ol = GridCollector("3methbut1ol", "/home/abdullah/Code/Python/SFED/data/DATA/KH/3methbut1ol/3")
-gc24dimepen = GridCollector("24dimepen", "/home/abdullah/Code/Python/SFED/data/DATA/KH/24dimepen/3")
-gcethene = GridCollector("ethene", "/home/abdullah/Code/Python/SFED/data/DATA/KH/ethene/3")
-gcethylbenzene = GridCollector("ethylbenzene", "/home/abdullah/Code/Python/SFED/data/DATA/KH/ethylbenzene/3")
-gcn_decane = GridCollector("n_decane", "/home/abdullah/Code/Python/SFED/data/DATA/KH/n_decane/3")
-gcn_hexane = GridCollector("n_hexane", "/home/abdullah/Code/Python/SFED/data/DATA/KH/n_hexane/3")
-gcphenol = GridCollector("phenol", "/home/abdullah/Code/Python/SFED/data/DATA/KH/phenol/3")
+base_path = Path(__file__).parent
+data_path = file_path = (base_path / "../data/DATA/KH/").resolve()
+
+gc3methbut1e = GridCollector("3methbut1e", str(data_path) + "/3methbut1e/3")
+gc3methbut1ol = GridCollector("3methbut1ol", str(data_path) + "/3methbut1ol/3")
+gc24dimepen = GridCollector("24dimepen", str(data_path) + "/24dimepen/3")
+gcethene = GridCollector("ethene", str(data_path) + "/ethene/3")
+gcethylbenzene = GridCollector("ethylbenzene", str(data_path) + "/ethylbenzene/3")
+gcn_decane = GridCollector("n_decane", str(data_path) + "/n_decane/3")
+gcn_hexane = GridCollector("n_hexane", str(data_path) + "/n_hexane/3")
+gcphenol = GridCollector("phenol", str(data_path) + "/phenol/3")
 
 prec = 4
 
