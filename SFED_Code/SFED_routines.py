@@ -19,7 +19,7 @@ def sfed_gf_3drism(h_o, c_o, h_h, c_h, rho=0.03332834, kB=1.9872041E-3, T=298.15
     return wr*kB*T
 
 def sfed_hnc_3drism(h_o, c_o, h_h, c_h, rho=0.03332834, kB=1.9872041E-3, T=300, Na=6.022142E23):
-    wr = rho * (0.5 * np.power(h_o, 2) - c_o - 0.5 * h_o * c_o) + 2 * rho * (0.5 * np.power(h_h, 2) - c_h - 0.5 * h_h * c_h)
+    wr = rho * (0.5 * np.power(h_o, 2) - c_o) + 2 * rho * (0.5 * np.power(h_h, 2) - c_h)
     return wr*kB*T
 
 def sfed_kh_3drism(h_o, c_o, h_h, c_h, rho=0.03342285869, kB=0.00198721587, T=300, Na=6.022142E23):
