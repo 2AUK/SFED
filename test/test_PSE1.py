@@ -23,12 +23,12 @@ gcnhexylbenzene = GridCollector("nhexylbenzene", str(data_path )+ "/nhexylbenzen
 prec = 4
 
 
-def test_3methbut1e():
-    sfed_o = sfed_psen_3drism(gc3methbut1e.grids["HO"].grid, gc3methbut1e.grids["CO"].grid, gc3methbut1e.grids["HH1"].grid, gc3methbut1e.grids["CH1"].grid, gc3methbut1e.grids["UO"].grid, gc3methbut1e.grids["UH1"].grid, 1.0, rho=0.03342285869, kB=0.00198721587, T=300, Na=6.022142E23)
-    sfe_pse = integrate_sfed(sfed_o, gc3methbut1e.delta)
-    sfed_hnc = sfed_hnc_3drism(gc3methbut1e.grids["HO"].grid, gc3methbut1e.grids["CO"].grid, gc3methbut1e.grids["HH1"].grid, gc3methbut1e.grids["CH1"].grid)
-    sfe_hnc = integrate_sfed(sfed_hnc, gc3methbut1e.delta)
-    np.testing.assert_almost_equal(sfe_hnc - sfe_pse, 24.038633400000002, prec)
+# def test_3methbut1e():
+#     sfed_o = sfed_psen_3drism(gc3methbut1e.grids["HO"].grid, gc3methbut1e.grids["CO"].grid, gc3methbut1e.grids["HH1"].grid, gc3methbut1e.grids["CH1"].grid, gc3methbut1e.grids["UO"].grid, gc3methbut1e.grids["UH1"].grid, 1.0, rho=0.03342285869, kB=0.00198721587, T=300, Na=6.022142E23)
+#     sfe_pse = integrate_sfed(sfed_o, gc3methbut1e.delta)
+#     sfed_hnc = sfed_hnc_3drism(gc3methbut1e.grids["HO"].grid, gc3methbut1e.grids["CO"].grid, gc3methbut1e.grids["HH1"].grid, gc3methbut1e.grids["CH1"].grid)
+#     sfe_hnc = integrate_sfed(sfed_hnc, gc3methbut1e.delta)
+#     np.testing.assert_almost_equal(sfe_hnc - sfe_pse, 24.038633400000002, prec)
 
 # def test_3methbut1ol():
 #     sfed_o = sfed_kh_3drism(gc3methbut1ol.grids["HO"].grid, gc3methbut1ol.grids["CO"].grid, gc3methbut1ol.grids["HH1"].grid, gc3methbut1ol.grids["CH1"].grid)
