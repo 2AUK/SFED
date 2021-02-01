@@ -3,9 +3,13 @@ from SFED_routines import *
 import numpy as np
 import sys
 import argparse
+import textwrap
 from gridcollector import GridCollector
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(epilog=textwrap.dedent('''\
+    The .dx files in your input directory need to be tagged with H, C and G 
+    for the total correlation function, direct correlation function and 
+    pair distribution function respectively.'''))
 
 parser.add_argument("-d", "--directory", help=" Directory to be scanned containing dx files", required=True)
 parser.add_argument("-i", "--input", help="Name of input molecule", required=True)
