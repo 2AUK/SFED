@@ -6,7 +6,7 @@ from SFED_routines import sfed_kh_3drism, integrate_sfed
 
 class GridCollector():
 
-    def __init__(self, mol, fname, suffix=["H", "C", "G"]):
+    def __init__(self, mol, fname, suffix=["H", "C", "G", "U"]):
         self.mol = mol
         self.fname = fname
         self.suffix = suffix
@@ -29,8 +29,8 @@ class GridCollector():
                 self.grids[self.suffix[1]+name[1]] = Grid(self.fname + "/" + dx.stem + ".dx")
             elif (name[0].endswith("_"+self.suffix[2])):
                 self.grids[self.suffix[2]+name[1]] = Grid(self.fname + "/" + dx.stem + ".dx")
-            # elif (name[0].endswith("_"+self.suffix[3])):
-            #     self.grids[self.suffix[3]+name[1]] = Grid(self.fname + "/" + dx.stem + ".dx")
+            elif (name[0].endswith("_"+self.suffix[3])):
+                self.grids[self.suffix[3]+name[1]] = Grid(self.fname + "/" + dx.stem + ".dx")
         if not self.grids:
             raise Exception("No tagged .dx files found")
 

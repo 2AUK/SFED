@@ -20,7 +20,7 @@ gcn_hexane = GridCollector("n_hexane", str(data_path) + "/n_hexane/3")
 gcphenol = GridCollector("phenol", str(data_path) + "/phenol/3")
 gcnhexylbenzene = GridCollector("nhexylbenzene", str(data_path )+ "/nhexylbenzene/3")
 
-prec = 4
+prec = 3
 
 def test_3methbut1e():
     sfed_o = sfed_hnc_3drism(gc3methbut1e.grids["HO"].grid, gc3methbut1e.grids["CO"].grid, gc3methbut1e.grids["HH1"].grid, gc3methbut1e.grids["CH1"].grid)

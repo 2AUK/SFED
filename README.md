@@ -26,3 +26,5 @@ You may then run the sfed.py script as such:
     python sfed.py -d <output directory of .dx files from AMBER> -i 3methbut1ol -o 3methbut1ol_SFED -c KH -p 0.03342285869 -T 300
 
 The last two flags, p and T are the density and temperature respectively. Both are optional, as the default for p is 0.03342285869 A^-3 - the density of water. The temperature is by default at 300K.
+
+The data for running the unit tests are not available yet here due to size restrictions. I'm working on it though.

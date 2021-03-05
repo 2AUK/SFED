@@ -26,13 +26,14 @@ def sfed_kh_3drism(h_o, c_o, h_h, c_h, rho=3.3422858685000001E-02, kB=0.00198721
     wr = rho*(0.5*np.power(h_o, 2)*np.heaviside(-h_o, 1) - 0.5*h_o*c_o - c_o) + 2*rho*(0.5*np.power(h_h, 2)*np.heaviside(-h_h, 0.5) - 0.5*h_h*c_h - c_h)
     return wr*kB*T
 
-""" def sfed_psen_3drism(h_o, c_o, h_h, c_h, u_o, u_h, n, rho=3.3422858685000001E-02, kB=0.00198721587, T=300, Na=6.022142E23):
-    ts_o = (-u_o / kB / T) + (h_o - c_o)
-    ts_h = (-u_h / kB / T) + (h_h - c_h)
+def sfed_psen_3drism(h_o, c_o, h_h, c_h, u_o, u_h, n, rho=3.3422858685000001E-02, kB=0.00198721587, T=300, Na=6.022142E23):
+    ts_o = (-u_o) + (h_o - c_o)
+    ts_h = (-u_h) + (h_h - c_h)
+    sfed_hnc = sfed_hnc_3drism(h_o, c_o, h_h, c_h, rho=3.3422858685000001E-02, kB=0.00198721587, T=300, Na=6.022142E23)
     wr = rho*(np.heaviside(h_o, 0.5)*np.power(ts_o, n+1)/np.math.factorial(n+1)) + 2*rho*(np.heaviside(h_h, 0.5)*np.power(ts_h, n+1)/np.math.factorial(n+1))
-    return wr*kB*T
+    return (sfed_hnc - wr*kB*T)
 
-def mu_kh_3drism_g(g_o, c_o, g_h, c_h, d, rho=3.3422858685000001E-02, kB=0.00198721587, T=300, Na=6.022142E23):
+""" def mu_kh_3drism_g(g_o, c_o, g_h, c_h, d, rho=3.3422858685000001E-02, kB=0.00198721587, T=300, Na=6.022142E23):
     h_o = g_o - 1.0
     h_h = g_h - 1.0
     mu = rho*np.sum(0.5*np.power(h_o, 2)*np.heaviside(-h_o, 1) - 0.5*h_o*c_o - c_o)*d + 2*rho*np.sum(0.5*np.power(h_h, 2)*np.heaviside(-h_h, 0.5) - 0.5*h_h*c_h - c_h)*d
