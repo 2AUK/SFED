@@ -27,4 +27,6 @@ You may then run the sfed.py script as such:
 
 The last two flags, p and T are the density and temperature respectively. Both are optional, as the default for p is 0.03342285869 A^-3 - the density of water. The temperature is by default at 300K.
 
+If the PSE-n closure is used, an additional parameter `-n` must be specificed with the value for n used.
+
 The data for running the unit tests are not available yet here due to size restrictions. I'm working on it though.
