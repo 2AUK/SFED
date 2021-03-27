@@ -18,6 +18,7 @@ parser.add_argument("-o", "--output", help = "Output file name", required=True)
 parser.add_argument("-T", "--temperature",  help="Temperature of system (default = 300)", type=float, nargs="?", default=300)
 parser.add_argument("-p", "--density", help="Density of system (default = 0.03342285869 [for water])", type=float, nargs="?", default=3.3422858685000001E-02)
 #parser.add_argument("-t", "--tags", help="Suffix tags for scanning the correct .dx files (default = [\"H\", \"C\", \"G\"])", nargs="+", default=["H", "C", "G"])
+parser.add_argument("-n", "--term", help="The values for n in the PSE-n closure", required=False)
 args = parser.parse_args()
 
 def epilogue(output_sfed, sample_grid, fname):
@@ -36,9 +37,15 @@ if __name__ == "__main__":
         epilogue(output_sfed, grids.grids["HO"], args.output)
     elif args.closure == "GF":
         output_sfed = sfed_gf_3drism(grids.grids["HO"].grid, grids.grids["CO"].grid, grids.grids["HH1"].grid, grids.grids["CH1"].grid, rho=args.density, T=args.temperature)
-        epilogue(output_sfed, grids.grids["HO"].grid, args.output)
+        epilogue(output_sfed, grids.grids["HO"], args.output)
     elif args.closure == "HNC":
         output_sfed = sfed_hnc_3drism(grids.grids["HO"].grid, grids.grids["CO"].grid, grids.grids["HH1"].grid, grids.grids["CH1"].grid, rho=args.density, T=args.temperature)
-        epilogue(output_sfed, grids.grids["HO"].grid, args.output)
+        epilogue(output_sfed, grids.grids["HO"], args.output)
+    elif args.closure.startswith("PSE"):
+        if args.term is None:
+            parser.error("PSE-n closure requires a value for -n")
+        else:
+            output_sfed = sfed_psen_3drism(grids.grids["HO"].grid, grids.grids["CO"].grid, grids.grids["HH1"].grid, grids.grids["CH1"].grid, grids.grids["UO"].grid,grids.grids["UH1"].grid, float(args.term), rho=args.density, T=args.temperature)
+            epilogue(output_sfed, grids.grids["HO"], args.output)
     else:
         raise Exception("Unknown closure")
